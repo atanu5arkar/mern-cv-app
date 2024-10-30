@@ -5,6 +5,7 @@
     "main": "index.js",
     "type": "module",
     "scripts": {
+        "start": "pm2 start app.js --name serve-cv",
         "dev": "nodemon app.js"
     },
     "keywords": [],
