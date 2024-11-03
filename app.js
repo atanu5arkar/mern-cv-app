@@ -5,6 +5,8 @@ import UserModel from "./model/User.js";
 const app = express();
 const port = 3000;
 
+app.use(express.static('public'));
+
 app.get('/api/users', async (req, res) => {
     try {
         return res.status(200).json(
@@ -23,8 +25,10 @@ app.get('/api/users/:userid', async (req, res) => {
 
         if (!user)
             return res.status(404).json({ msg: 'User Not Found!' });
-
-        return res.status(200).json(user);
+        
+        setTimeout(() => {
+            return res.status(200).json(user);
+        }, 1500);
     } catch (error) {
         console.log(error);
         return res.status(500).json({ msg: 'Server Error!' });
